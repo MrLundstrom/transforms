@@ -1,1 +1,116 @@
 /* You can add global styles to this file, and also import other style files */
+h1{
+  text-align: center;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+* {
+  transform-style: preserve-3d;
+  box-sizing: border-box;
+}
+.house {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  > :nth-child(2) {
+    top: -100%;
+  }
+  .floor {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    .side {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .front-left {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform-origin: left;
+      .left {
+        transform: rotateY(90deg);
+        transform-origin: left;
+      }
+    }
+    .right-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: rotateY(-90deg);
+      transform-origin: right;
+      .back {
+        transform: rotateY(-90deg);
+        transform-origin: left;
+        background-color: green;
+      }
+      .right {
+        background-color: yellow;
+      }
+    }
+    .bottom-top {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      .bottom {
+        transform: rotateX(90deg);
+        transform-origin: bottom;
+        background-color: darkgray;
+      }
+      .top {
+        transform: rotateX(-90deg);
+        transform-origin: top;
+        background-color: pink;
+      }
+    }
+  }
+}
+.grid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 0.5rem solid black;
+  border-bottom: none;
+  &.one-floor {
+    grid-template-rows: 2fr;
+  }
+  &.two-floors {
+    grid-template-rows: 2fr 2fr;
+  }
+  .wall {
+    height: 100%;
+    width: 100%;
+    > .wall {
+      background-color: black;
+    }
+    &.-window {
+      display: grid;
+      grid-template-rows: 1.2fr 1fr;
+      .window {
+        height: 100%;
+        width: 100%;
+        border: 0.5rem solid black;
+        background-color:rgba(0,0,0,0.1);
+      }
+    }
+    &.-door {
+      border: 0.5rem solid black;
+      grid-template-rows: 1fr;
+      .door {
+        background-color: brown;
+        border-bottom: none;
+        width: 100%;
+        height: 100%;
+        transform-origin: right;
+        transform: rotateY(10deg);
+      }
+    }
+  }
+}

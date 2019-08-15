@@ -1,0 +1,37 @@
+.city {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  perspective: 1000px;
+}
+.left-side,
+.right-side,
+.bottom {
+  position: absolute;
+  width: 100%;
+  padding-top: 100%;
+  bottom: 0;
+  transition: 2s ease-in-out;
+}
+.left-side {
+  transform: rotateY(90deg);
+  transform-origin: left;
+}
+.right-side {
+  transform: rotateY(-90deg);
+  transform-origin: right;
+}
+@for $var from 1 to 5 {
+  $distance: $var * 125% - 125%;
+
+  .right-side {
+    > :nth-child(#{$var}) {
+      left: calc(-1 * #{$distance});
+    }
+  }
+  .left-side {
+    > :nth-child(#{$var}) {
+      left: $distance;
+    }
+  }
+}
