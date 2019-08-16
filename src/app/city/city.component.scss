@@ -8,9 +8,10 @@
 .right-side,
 .bottom {
   position: absolute;
-  width: 100%;
-  padding-top: 100%;
-  bottom: 0;
+  width: 50%;
+  padding-top: 50%;
+  bottom: 25%;
+  left:25%;
   transition: 2s ease-in-out;
 }
 .left-side {

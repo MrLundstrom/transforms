@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-h1{
+.info{
+  position:absolute;
   text-align: center;
+  width:100%;
 }
 body {
   margin: 0;
@@ -9,6 +11,8 @@ body {
 * {
   transform-style: preserve-3d;
   box-sizing: border-box;
+  backface-visibility: visible;
+  overflow:visible;
 }
 .house {
   width: 100%;
@@ -35,6 +39,7 @@ body {
       height: 100%;
       transform-origin: left;
       .left {
+        -webkit-transform: rotateY(90deg);
         transform: rotateY(90deg);
         transform-origin: left;
       }
@@ -43,6 +48,7 @@ body {
       position: absolute;
       width: 100%;
       height: 100%;
+      -webkit-transform: rotateY(-90deg);
       transform: rotateY(-90deg);
       transform-origin: right;
       .back {

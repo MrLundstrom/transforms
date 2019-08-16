@@ -10,8 +10,8 @@ export class CityComponent implements OnInit {
   right;
   bottom;
   @HostListener('document:click', ['$event'])
-  onMouseMove(e) {
-    this.transform(e.clientX, e.ClientY);
+  click(e) {
+    this.transform(e.clientX, e.clientY);
   }
 
   constructor() { }
@@ -24,8 +24,8 @@ export class CityComponent implements OnInit {
 
   transform(X: number, Y: number) {
     const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    //const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    this.left.style.transform = 'translateZ(0) rotateY(' + (90 - (X / width * 90) + 40) + 'deg)';
-    this.right.style.transform = 'translateZ(0) rotateY(' + (((X / width) * -90) - 40) + 'deg)';
+    const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    this.left.style.transform = 'rotateY(' + (90 - (X / width * 90) + 40) + 'deg) rotateZ(' + (-15 * (Y / height)) + 'deg)';
+    this.right.style.transform = 'rotateY(' + (((X / width) * -90) - 40) + 'deg) rotateZ(' + (15 * Y / height) + 'deg)';
   }
 }
